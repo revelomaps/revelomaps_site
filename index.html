@@ -21,6 +21,96 @@
 <script>
 tailwind.config={theme:{extend:{colors:{primary:'#012548',secondary:'#738D6D',sage:'#DDE4D9',bg:'#FAFBFA',card:'#FFFFFF',border:'#E6E8E5','sage-light':'#E8EDE3','sage-50':'#F4F7F2'},fontFamily:{poppins:['Poppins','sans-serif'],inter:['Inter','sans-serif']},borderRadius:{'2xl':'20px','3xl':'24px'}}}}
 </script>
+  <style>
+.founding-announcement{
+  width:100%;
+  height:50px;
+  margin-top:64px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  background:#012548;
+  color:#F4C95D;
+  border-top:1px solid rgba(244,201,93,.65);
+  border-bottom:1px solid rgba(244,201,93,.65);
+  box-shadow:0 3px 18px rgba(1,37,72,.18);
+  position:relative;
+  z-index:10;
+}
+
+.founding-announcement::before,
+.founding-announcement::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:90px;
+  z-index:2;
+  pointer-events:none;
+}
+
+.founding-announcement::before{
+  left:0;
+  background:linear-gradient(90deg,#012548,rgba(1,37,72,0));
+}
+
+.founding-announcement::after{
+  right:0;
+  background:linear-gradient(270deg,#012548,rgba(1,37,72,0));
+}
+
+.founding-announcement-track{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  animation:founding-announcement-scroll 20s linear infinite;
+  will-change:transform;
+}
+
+.founding-announcement-item{
+  display:inline-flex;
+  align-items:center;
+  padding-right:110px;
+  font-family:Inter,sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-shadow:0 0 12px rgba(244,201,93,.18);
+}
+
+.founding-announcement-dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin:0 11px 0 2px;
+  border-radius:50%;
+  background:#F4C95D;
+  box-shadow:0 0 10px rgba(244,201,93,.75);
+}
+
+@keyframes founding-announcement-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+@media (max-width:640px){
+  .founding-announcement{
+    height:46px;
+  }
+
+  .founding-announcement-item{
+    font-size:12.5px;
+    padding-right:75px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .founding-announcement-track{
+    animation:none;
+  }
+}
+</style>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#FAFBFA;color:#012548;overflow-x:hidden}
@@ -89,6 +179,31 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:#738D6D;box-sh
 
 <!-- =============== HOME =============== -->
 <div id="page-home" class="page active">
+  <div class="founding-announcement" aria-label="Founding Client Offer">
+  <div class="founding-announcement-track">
+
+    <span class="founding-announcement-item">
+      🎉 <span class="founding-announcement-dot"></span>
+      Founding Client Offer: Professional plan ($500/mo value) at $250/mo for our first 5 clients.
+    </span>
+
+    <span class="founding-announcement-item">
+      🎉 <span class="founding-announcement-dot"></span>
+      Founding Client Offer: Professional plan ($500/mo value) at $250/mo for our first 5 clients.
+    </span>
+
+    <span class="founding-announcement-item">
+      🎉 <span class="founding-announcement-dot"></span>
+      Founding Client Offer: Professional plan ($500/mo value) at $250/mo for our first 5 clients.
+    </span>
+
+    <span class="founding-announcement-item">
+      🎉 <span class="founding-announcement-dot"></span>
+      Founding Client Offer: Professional plan ($500/mo value) at $250/mo for our first 5 clients.
+    </span>
+
+  </div>
+</div>
 <section class="hero-bg relative min-h-screen flex items-center pt-16">
 <div class="blob w-72 h-72 bg-sage top-32 -left-36 opacity-30" style="z-index:2"></div>
 <div class="max-w-7xl mx-auto px-6 py-20 lg:py-28 relative z-10 w-full">
