@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://revelomaps.in/sitemap.xml
